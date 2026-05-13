@@ -1,0 +1,17 @@
+{
+  "name": "unfoldd-ai",
+  "version": "1.0.0",
+  "scripts": {
+    "build:frontend": "cd frontend && npm run build",
+    "cap:sync": "npx cap sync android",
+    "cap:build": "cd android && ./gradlew assembleDebug",
+    "build:apk": "npm run build:frontend && npm run cap:sync && npm run cap:build"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "appId": "ai.unfoldd.app",
+  "appName": "Unfoldd AI",
+  "webDir": "frontend/dist",
+  "plugins": {
+    "Haptics": {},
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
