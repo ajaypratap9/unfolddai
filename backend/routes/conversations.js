@@ -16,15 +16,21 @@ router.use(async (req, res, next) => {
 
 router.get('/', async (req, res) => {
   try {
+    console.log('Fetching conversations for user:', req.user.id);
     const { data, error } = await supabaseAdmin
       .from('conversations')
       .select('*')
       .eq('user_id', req.user.id)
       .order('updated_at', { ascending: false });
 
-    if (error) throw error;
+    if (error) {
+      console.error('Supabase error fetching conversations:', error);
+      throw error;
+    }
+    console.log(`Found ${data?.length || 0} conversations`);
     res.json(data);
   } catch (error) {
+    console.error('Catch block error fetching conversations:', error);
     res.status(500).json({ error: error.message });
   }
 });
